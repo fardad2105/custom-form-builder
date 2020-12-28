@@ -26,7 +26,6 @@ export class FormComponent implements OnInit {
   getFormData() { 
     this.dataTranserService.inventoryChanged$.subscribe( data => {
       this.inputForm = data;
-      console.log(data)
     })
   }
 

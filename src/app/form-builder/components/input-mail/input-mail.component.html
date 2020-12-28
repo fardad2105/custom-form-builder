@@ -1,10 +1,8 @@
 <div class="col-md-8 col-xs-8 col-sm-12" style="margin-top: 15px;"> 
-  <div class="form-group">
-    <label for="mail">{{ inputField.label }}</label>
-    <input *ngIf="inputField.Validation; else NoValidInput" type="email" email required #email="ngModel" class="form-control" id="mail" ngModel [name]="inputField.name" [placeholder]="inputField.placeHolder">
-    <span *ngIf="!email.valid && email.touched" class="text-danger">Please enter your email correctly!</span>
-    <ng-template #NoValidInput>
-      <input type="email" class="form-control" id="mail" [name]="inputField.name" [placeholder]="inputField.placeHolder">
-    </ng-template>
+  <div class="form-group" *ngIf="inputField">
+    <label for="mail">{{ inputField?.label }}</label><label *ngIf="inputField.Validation" class="text-danger">*</label>
+    <input type="email" class="form-control" [required]="inputField.Validation" email #email="ngModel" id="{{inputField.name}}" placeholder="{{inputField.placeHolder}}" [(ngModel)]="inputField.value" [ngModelOptions]="{standalone: true}" autocomplete="off">
+    <span class="text-danger" *ngIf="inputField.Validation && (!email.valid || email.touched)">Please enter your email correctly</span>
+
   </div>
 </div>

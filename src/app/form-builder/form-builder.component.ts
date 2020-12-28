@@ -13,7 +13,7 @@ export class FormBuilderComponent implements OnInit,DoCheck {
   selectedInputVal: string;
   inputLabel = '';         
   inputPlaceHolder = '';    
-  Validation: boolean;
+  Validation: Boolean;
   inputForm: InputFormat[] = [];
   enableAddInputBtn = false;
   generateForm = false;
@@ -75,6 +75,7 @@ export class FormBuilderComponent implements OnInit,DoCheck {
     this.selectVal = '';
     console.log(this.selectedValues)  
   }
+  
 
   GenerateForm() {
     this.dataTranserService.addToInventory(this.inputForm);

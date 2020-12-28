@@ -27,8 +27,8 @@
       <div class="col-md-6 col-sm-12">
         <label>Check Validation</label>
         <select class="custom-select" [(ngModel)]="Validation">
-          <option [value]="true">Check required</option>
-          <option [value]="false">UnCheck</option>
+          <option [ngValue]="true">Check required</option>
+          <option [ngValue]="false">UnCheck</option>
         </select>
       </div>
       <ng-container *ngIf="Validation">

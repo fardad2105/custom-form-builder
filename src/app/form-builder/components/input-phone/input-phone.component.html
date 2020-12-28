@@ -2,6 +2,8 @@
   <div class="form-group">
     <label for="phone">{{ inputField.label }}</label>
     <input type="tel" class="form-control" id="phone"
-     [placeholder]="inputField.placeHolder" [name]="inputField.name" ngModel>
+     [placeholder]="inputField.placeHolder" [name]="inputField.name" [required]="inputField.Validation" min="11" max="11"  ngModel #vlaidationPhone="ngModel">
+     <span class="text-danger" *ngIf="inputField.Validation && (!vlaidationPhone.valid || vlaidationPhone.touched)">please check your input</span>
+
   </div>
 </div>

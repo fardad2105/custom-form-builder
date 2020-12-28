@@ -3,7 +3,7 @@ export interface InputFormat {
     type: string;
     label?: string;
     placeHolder?: string;
-    Validation?: boolean;
+    Validation?: Boolean;
     name?: string;
     value?: string;
     values?: Array<Value>;
