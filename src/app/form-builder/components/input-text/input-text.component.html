@@ -1,0 +1,10 @@
+<div class="col-md-8 col-xs-8 col-sm-12" style="margin-top: 15px;">
+  <div class="form-group">
+    <label for="formGroupExampleInput">{{ inputField.label }}</label>
+    <input *ngIf="inputField.Validation; else NoVlidate" type="text" required #input="ngModel" class="form-control" [name]="inputField.name" ngModel id="formGroupExampleInput" [placeholder]="inputField.placeHolder">
+    <span class="text-danger">This Field Can't be Null</span>
+    <ng-template #NoVlidate>
+      <input *ngIf="inputField.Validation; else NoVlidate" type="text" class="form-control" [name]="inputField.name" id="formGroupExampleInput" [placeholder]="inputField.placeHolder">
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="col-md-8 col-xs-8 col-sm-12" style="margin-top: 15px;">
+  <label>{{inputField.label}}</label> <label *ngIf="inputField.Validation" class="text-danger">*</label>
+  <input type="datetime-local" class="form-control" id="{{inputField.label}}"
+        placeholder="{{inputField.placeHolder}}" [(ngModel)]="inputField.value" 
+        [ngModelOptions]="{standalone: true}" autocomplete="off">
+</div>

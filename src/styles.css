@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.css';
+.bg-header {
+    background-image: linear-gradient(to right, rgb(128, 182, 243) , rgb(142, 60, 236));
+}
+.brd {
+    border: 1px solid gainsboro;
+    box-shadow: 5px 10px #e4e4e4;
+    padding: 20px;
+}

@@ -1,0 +1,8 @@
+<div class="col-md-8 col-xs-8 col-sm-12" style="margin-top: 15px;">
+  <label>{{inputField.label}} (File can't be uploaded right now)</label> <label *ngIf="inputField.Validation" class="text-danger">*</label>
+  <input type="file" class="form-control" id="{{inputField.label}}"
+        placeholder="{{inputField.placeHolder}}" [(ngModel)]="inputField.value"
+        [ngModelOptions]="{standalone: true}" autocomplete="off"
+  >
+  <small class="form-text text-danger">(File can't be uploaded right now)</small>      
+</div>

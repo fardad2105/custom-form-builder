@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <div class="row">
+        <button [disabled]="!enableAddInputBtn" type="button" class="btn btn-info" style="margin-bottom: 20px;" (click)="addFormItems()">Add Input Element</button>
+    </div>
+    <div class="row brd">  
+      <div class="col-md-6 col-sm-12">
+        <label>Select Input Type</label>
+        <select class="custom-select" [(ngModel)]="selectedInputVal" (change)="onChange($event)">
+          <option [ngValue]="null" disabled>Please Select Input type</option>
+          <option *ngFor="let item of inputTypes" [value]="item">{{item}}</option>
+        </select>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group">
+            <label for="input-label">Input Label</label>
+            <input type="text" class="form-control" id="input-label" aria-describedby="label" [(ngModel)]="inputLabel">
+            <small id="label" class="form-text text-muted">you must write input label as text in this section</small>
+          </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group">
+            <label for="input-label">Input PlaceHolder</label>
+            <input type="text" class="form-control" id="input-label" aria-describedby="placeHolder" [(ngModel)]="inputPlaceHolder">
+            <small id="placeHolder" class="form-text text-muted">you must write input place-holder as text in this section</small>
+          </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <label>Check Validation</label>
+        <select class="custom-select" [(ngModel)]="Validation">
+          <option [value]="true">Check required</option>
+          <option [value]="false">UnCheck</option>
+        </select>
+      </div>
+      <ng-container *ngIf="Validation">
+        <div class="col-md-5 col-sm-12">
+          <label>Input name</label>
+          <input type="text" class="form-control" id="input-name" aria-describedby="name" [(ngModel)]="inputFieldName">
+          <small id="selected" class="form-text text-muted">please enter name for input for validation input</small>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="selectedInputVal == 'input-select' || selectedInputVal == 'input-radio' || selectedInputVal == 'input-checkbox'">
+        <div class="col-md-5 col-sm-12">
+            <label>Selected Values</label>
+            <input type="text" class="form-control" id="select-values" aria-describedby="selected" [(ngModel)]="selectVal" (keydown.enter)="setSelectedValues()">
+            <small id="selected" class="form-text text-muted">after add every value please enter key enter</small>
+
+        </div>
+        <div class="col-5" style="overflow-x: scroll; margin-top: 2%;">
+              <h4 *ngFor="let item of selectedValues" style="margin-left: 10px; background-color: whitesmoke; display: inline; width: 200px;">{{item.value}}</h4>
+        </div>
+      </ng-container>
+      
+    </div>
+    <div class="row" style="margin-top: 50px;">
+        <table class="table" *ngIf="inputForm.length !== 0">
+            <thead>
+              <tr>
+                <th scope="col">Action</th>
+                <th scope="col">input Type</th>
+                <th scope="col">input Label</th>
+                <th scope="col">input place holder</th>
+                <th scope="col">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of inputForm; let i = index">
+                <th scope="row"><a href="#" (click)="DeleteRow(i)">Delete</a></th>
+                <td>{{item.type}}</td>
+                <td>{{item.label}}</td>
+                <td>{{item.placeHolder}}</td>
+                <td>{{item.Validation}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button [ngStyle]="{'display': generateForm ? 'inline':'none'}" type="button" class="btn btn-primary" (click)="GenerateForm()">GenerateForm</button>
+    </div>
+  </div>

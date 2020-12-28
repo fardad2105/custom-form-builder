@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <form action="#" (ngSubmit)="onSubmit()" #f="ngForm" style="margin-top: 20px 0px; width: 100%;">
+      <div *ngFor="let item of inputForm">
+        <app-input-text *ngIf="item.type === 'input-text'" [inputField] = "item"></app-input-text>
+        <app-input-select *ngIf="item.type === 'input-select'" [inputField]="item"></app-input-select>
+        <app-input-textarea *ngIf="item.type === 'input-textarea'" [inputField]="item"></app-input-textarea>
+        <app-input-radio *ngIf="item.type === 'input-radio'" [inputField]="item"></app-input-radio>
+        <app-input-phone *ngIf="item.type === 'input-phone'" [inputField]="item"></app-input-phone>
+        <app-input-number *ngIf="item.type === 'input-number'" [inputField]="item"></app-input-number>
+        <app-input-mail *ngIf="item.type === 'input-mail'" [inputField]="item"></app-input-mail>
+        <app-input-file-upload *ngIf="item.type === 'input-fileupload'" [inputField]="item"></app-input-file-upload>
+        <app-input-date-time *ngIf="item.type === 'input-datetime'" [inputField]="item"></app-input-date-time>
+        <app-input-date *ngIf="item.type === 'input-date'" [inputField]="item"></app-input-date>
+        <app-input-checkbox *ngIf="item.type === 'input-checkbox'" [inputField]="item"></app-input-checkbox>
+      </div>
+      <button [ngStyle]="{'display': inputForm.length > 0 ? 'inline':'none'}" type="submit" class="btn btn-warning">Submit</button>
+    </form>
+   
+    
+  </div>
+</div> 
